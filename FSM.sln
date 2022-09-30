@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSM", "FSM\FSM.csproj", "{AB0218E1-B288-4EE3-9C87-75B2B5911FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSMTests", "FSMTests\FSMTests.csproj", "{40A5AF08-A685-4E8F-ADF3-137F7F6B66AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB0218E1-B288-4EE3-9C87-75B2B5911FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB0218E1-B288-4EE3-9C87-75B2B5911FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB0218E1-B288-4EE3-9C87-75B2B5911FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB0218E1-B288-4EE3-9C87-75B2B5911FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A5AF08-A685-4E8F-ADF3-137F7F6B66AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A5AF08-A685-4E8F-ADF3-137F7F6B66AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A5AF08-A685-4E8F-ADF3-137F7F6B66AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A5AF08-A685-4E8F-ADF3-137F7F6B66AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE9627FF-E7C6-495B-8DC5-764DB3ED4D75}
+	EndGlobalSection
+EndGlobal

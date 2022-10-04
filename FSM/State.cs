@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Net.Mail;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace FSM
 
         Timer? pollTimer;
         Timer? timeoutTimer;
+        private string? name;
 
         public State(string? name, Action? clientMethod, Action? clientTimeoutMethod = null, int timeoutIntervalMS = 0, Action? clientPolledMethod = null, int pollIntervalMS = 0, State? parentState = null)
         {
@@ -22,15 +25,17 @@ namespace FSM
             TimeoutIntervalMS = timeoutIntervalMS;
             ClientPolledMethod = clientPolledMethod;
             PollIntervalMS = pollIntervalMS;
+            ChildStates = new ObservableCollection<State>();
         }
         public State()
         {
-
+            ChildStates = new ObservableCollection<State>();
         }
 
 
-        public string? Name { get; set; }
+        public string? Name { get => name; set { name = value; NotifyPropertyChanged(); } }
         public State? ParentState { get; set; }
+        public ObservableCollection<State> ChildStates { get; set; }
         public Action? ClientMethod { get; set; }
         public Action? ClientTimeoutMethod { get; set; }
         public Action? ClientPolledMethod { get; }
@@ -80,6 +85,23 @@ namespace FSM
                 Task.Factory.StartNew(ClientTimeoutMethod);
         }
 
+        public void AddChildState(State aChild)
+        {
+            if (aChild is not null)
+            {
+                aChild.ParentState = this;
+                ChildStates.Add(aChild);
+            }
+        }
+        public bool RemoveChildState(State aChild)
+        {
+            if (aChild is not null)
+            {
+                aChild.ParentState = null;
+                return ChildStates.Remove(aChild);
+            }
+            return false;
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

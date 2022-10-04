@@ -156,9 +156,9 @@ namespace FSMTests
             State s2 = new("Running", a2);
             State s3 = new("Error", a3);
             State s4 = new("Initialized", a4);
-            s1.ParentState = s4;
-            s2.ParentState = s4;
-            s3.ParentState = s4;
+            s4.AddChildState(s1);
+            s4.AddChildState(s2);
+            s4.AddChildState(s3);
 
 
             Transition t1 = new(s1, s2, "Run");

@@ -21,9 +21,10 @@ namespace FSMTests
             State s3 = new("Error", FsmAction_Error);
             State s4 = new("Initialized", FsmAction_Initialized);
 
-            s1.ParentState = s4;
-            s2.ParentState = s4;
-            s3.ParentState = s4;
+            s4.AddChildState(s1);
+            s4.AddChildState(s2);
+            s4.AddChildState(s3);
+
 
 
             Transition t1 = new(s1, s2, "Run");

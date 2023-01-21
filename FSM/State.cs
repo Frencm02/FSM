@@ -53,8 +53,6 @@ namespace FSM
         }
         public void Stop()
         {
-            if (ClientMethod is not null)
-                Task.Factory.StartNew(ClientMethod);
             if (ClientPolledMethod is not null && PollIntervalMS != 0)
                 pollTimer?.Dispose();
             if (ClientTimeoutMethod is not null && TimeoutIntervalMS != 0)
